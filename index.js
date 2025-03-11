@@ -16,6 +16,6 @@ await mongoose.connect(process.env.MONGO_URI);
 
 //global config
 
-app.listen(port, () => {
-  console.log(`server is listening on ${port}`);
+app.listen(PORT, () => {
+  console.log(`server is listening on ${PORT}}`);
 });

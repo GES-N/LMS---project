@@ -14,7 +14,7 @@ await mongoose.connect(process.env.MONGO_URI);
 //global config
 app.use(express.json());
 
-//We will add the app.use('/api/v1', lmsRouter); below this line
+('/api/v1', lmsRouter);
 
 app.listen(port, ()=>{
  console.log(`server is listening on ${port}`);

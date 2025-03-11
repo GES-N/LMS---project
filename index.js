@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import lmsRouter from "./routes/librarymgtsystem.js";
 
 const app = express();
-const port = 3034;
+const PORT = process.env.PORT || 3034;
 
 app.use(express.json());
 

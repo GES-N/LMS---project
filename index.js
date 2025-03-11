@@ -1,10 +1,13 @@
-import express from 'express'
-import mongoose from 'mongoose';
-
+import express from "express";
+import mongoose from "mongoose";
+import lmsRouter from "./routes/librarymgtsystem.js";
 
 const app = express();
-
 const port = 3034;
+
+app.use(express.json());
+
+"/api/v1", lmsRouter;
 
 await mongoose.connect(process.env.MONGO_URI);
 // const db= mongoose.connect(process.env.MONGO_URI).then(()=>{
@@ -12,10 +15,7 @@ await mongoose.connect(process.env.MONGO_URI);
 // })
 
 //global config
-app.use(express.json());
 
-('/api/v1', lmsRouter);
-
-app.listen(port, ()=>{
- console.log(`server is listening on ${port}`);
+app.listen(port, () => {
+  console.log(`server is listening on ${port}`);
 });

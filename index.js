@@ -7,7 +7,7 @@ const port = 3034;
 
 app.use(express.json());
 
-"/api/v1", lmsRouter;
+app.use("/api/v1", lmsRouter);
 
 await mongoose.connect(process.env.MONGO_URI);
 // const db= mongoose.connect(process.env.MONGO_URI).then(()=>{

@@ -1,9 +1,9 @@
-import { bookSchema } from "../validators/librarymgtsystem.js";
+import { addBookSchema, updateBookSchema } from "../validators/librarymgtsystem.js";
 import { BookModel } from "../models/librarymgtsystem.js";
 
 /// 📌 Add a new book (With Validation)
 export const createBook = async (req, res) => {
-  const { error, value } = bookSchema.validate(req.body, { abortEarly: false });
+  const { error, value } = addBookSchema.validate(req.body, { abortEarly: false });
   if (error)
     return res
       .status(422)
@@ -18,7 +18,7 @@ export const createBook = async (req, res) => {
 
 // 📌 Fetch all books
 export const getBooks = async (req, res) => {
-  res.json(await Book.find());
+  res.json(await BookModel.find());
 };
 
 // 📌 Get a single book by ID
@@ -29,7 +29,7 @@ export const getBookById = async (req, res) => {
 
 // 📌 Update a book (With Validation)
 export const updateBook = async (req, res) => {
-  const { error, value } = bookSchema.validate(req.body, { abortEarly: false });
+  const { error, value } = updateBookSchema.validate(req.body, { abortEarly: false });
   if (error)
     return res
       .status(422)

@@ -13,7 +13,7 @@ lmsRouter.post("/book", createBook);
 
 lmsRouter.get("/books", getBooks);
 
-lmsRouter.get("/book", getBookById);
+lmsRouter.get("/book/:id", getBookById);
 
 lmsRouter.patch("/book/:id", updateBook);
 

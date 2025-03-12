@@ -1,22 +1,28 @@
-import { addBookSchema, updateBookSchema } from "../validators/librarymgtsystem.js";
+import {
+  addBookSchema,
+  updateBookSchema,
+} from "../validators/librarymgtsystem.js";
 import { BookModel } from "../models/librarymgtsystem.js";
 
-/// 📌 Add a new book (With Validation)
+// Add a Book
 export const createBook = async (req, res) => {
-  const { error, value } = addBookSchema.validate(req.body, { abortEarly: false });
-  if (error)
-    return res
-      .status(422)
-      .json({ errors: error.details.map((err) => err.message) });
-
   try {
+    const { error, value } = addBookSchema.validate({
+      ...req.body,
+      image: req.file.filename,
+    });
+    if (error)
+      return res
+        .status(422)
+        .json({ errors: error.details.map((err) => err.message) });
+
     res.status(201).json(await BookModel.create(value));
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 };
 
-// 📌 Fetch all books
+// Fetch all books
 export const getBooks = async (req, res) => {
   res.json(await BookModel.find());
 };
@@ -29,7 +35,9 @@ export const getBookById = async (req, res) => {
 
 // 📌 Update a book (With Validation)
 export const updateBook = async (req, res) => {
-  const { error, value } = updateBookSchema.validate(req.body, { abortEarly: false });
+  const { error, value } = updateBookSchema.validate(req.body, {
+    abortEarly: false,
+  });
   if (error)
     return res
       .status(422)

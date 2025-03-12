@@ -6,10 +6,11 @@ import {
   getBooks,
   updateBook,
 } from "../controllers/librarymgtsystem.js";
+import { remoteUpload } from "../middlewares/lms.js";
 
 const lmsRouter = Router();
 
-lmsRouter.post("/book", createBook);
+lmsRouter.post("/book", remoteUpload.single("image"), createBook);
 
 lmsRouter.get("/books", getBooks);
 

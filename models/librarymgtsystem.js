@@ -2,12 +2,13 @@ import mongoose, { Schema, model } from "mongoose";
 
 const BookSchema = new Schema(
   {
-    title: { type: String, required: true, trim: true },
-    author: { type: String, required: true, trim: true },
-    category: { type: String, required: true, trim: true },
+    title: { type: String, required: true },
+    author: { type: String, required: true },
+    category: { type: String, required: true },
+    description: { type: String, required: true },
     publishedYear: { type: Number, required: true },
-    copiesAvailable: { type: Number, required: true, min: 0 },
-    totalCopies: { type: Number, required: true, min: 1 },
+    copiesAvailable: { type: Number, required: true },
+    totalCopies: { type: Number, required: true },
     status: {
       type: String,
       enum: ["available", "checked_out"],

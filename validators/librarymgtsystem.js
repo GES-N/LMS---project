@@ -1,8 +1,11 @@
 import Joi from "joi";
 
 export const addBookSchema = Joi.object({
+export const addBookSchema = Joi.object({
   title: Joi.string().required(),
   author: Joi.string().required(),
+  image: Joi.string().required(),
+  description: Joi.string().required(),
   description: Joi.string(),
   image: Joi.string().required(),
   publishedYear: Joi.number().required(),
@@ -14,10 +17,13 @@ export const addBookSchema = Joi.object({
 export const updateBookSchema = Joi.object({
   title: Joi.string().optional(),
   author: Joi.string().optional(),
+  image: Joi.string().optional(),
+  description: Joi.string().optional(),
   description: Joi.string().optional(),
   image: Joi.string().optional(),
   publishedYear: Joi.number().optional(),
   category: Joi.string().optional(),
   copiesAvailable: Joi.number().optional(),
   totalCopies: Joi.number().optional(),
+  
 });

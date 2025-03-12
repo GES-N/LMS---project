@@ -4,14 +4,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-<<<<<<< HEAD
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --env-file=.env ."
-=======
      "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --env-file=.env .",
     "start": "node ."
->>>>>>> f10a5c7d910f6dd26fdfeb2b347eba5aa611e601
   },
   "keywords": [],
   "author": "",

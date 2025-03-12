@@ -4,7 +4,7 @@ import lmsRouter from "./routes/librarymgtsystem.js";
 import cors from "cors";
 
 const app = express();
-const port = 3034;
+const PORT = process.env.PORT || 3034;
 
 app.use(express.json());
 app.use(cors());
@@ -17,6 +17,6 @@ await mongoose.connect(process.env.MONGO_URI);
 
 //global config
 
-app.listen(port, () => {
-  console.log(`server is listening on ${port}`);
+app.listen(PORT, () => {
+  console.log(`server is listening on ${PORT}}`);
 });

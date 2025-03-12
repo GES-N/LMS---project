@@ -11,12 +11,7 @@ app.use(cors());
 app.use("/api/v1", lmsRouter);
 
 await mongoose.connect(process.env.MONGO_URI);
-// const db= mongoose.connect(process.env.MONGO_URI).then(()=>{
-//     console.log('Database is connected');
-// })
-
-//global config
 
 app.listen(PORT, () => {
-  console.log(`server is listening on ${PORT}}`);
+  console.log(`server is listening on ${PORT}`);
 });

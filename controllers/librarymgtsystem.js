@@ -9,7 +9,7 @@ export const createBook = async (req, res) => {
   try {
     const { error, value } = addBookSchema.validate({
       ...req.body,
-      image: req.file.filename,
+      image: req.file?.filename,
     });
     if (error)
       return res

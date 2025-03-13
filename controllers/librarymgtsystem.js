@@ -26,7 +26,10 @@ export const createBook = async (req, res, next) => {
 // Fetch all books
 export const getBooks = async (req, res, next) => {
   try {
-    const books = await BookModel.find();
+    const {filter = "{}", sort = "{}"} = req.query;
+    const books = await BookModel
+    .find(JSON.parse(filter))
+    .sort(JSON.parse(sort))
     res.status(200).json(books);
   } catch (error) {
     next(error);

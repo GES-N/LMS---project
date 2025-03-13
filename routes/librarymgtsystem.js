@@ -10,7 +10,12 @@ import { remoteUpload } from "../middlewares/lms.js";
 
 const lmsRouter = Router();
 
-lmsRouter.post("/book", remoteUpload.single("image"), createBook);
+lmsRouter.post(
+  "/book",
+  remoteUpload.fields([{ name: "image" }, { name: "bookFile" }]),
+
+  createBook
+);
 
 lmsRouter.get("/books", getBooks);
 
